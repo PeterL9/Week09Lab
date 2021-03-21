@@ -27,7 +27,7 @@
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
                         <td><a href="mailto:${user.getEmail()}">${user.getEmail()}</a></td>
-                        <td>${user.getRole()}</td>
+                        <td>${user.getRole().getRoleName()}</td>
                         <td><c:choose>
                                 <c:when test="${user.getActive()}">
                                     Active!
