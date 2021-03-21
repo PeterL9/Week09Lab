@@ -17,14 +17,14 @@ public class UserService {
         return users;
     }
     
-    public void insert(String email, Boolean active, String firstName, String lastName, String password, int roleID) throws Exception {
-        User user = new User(email, active, firstName, lastName, password, roleID);
+    public void insert(String email, Boolean active, String firstName, String lastName, String password) throws Exception {
+        User user = new User(email, active, firstName, lastName, password);
         UserDB userDB = new UserDB();
         userDB.insert(user);
     }
     
-    public void update(String email, Boolean active, String firstName, String lastName, String password, int roleID) throws Exception {
-        User user = new User(email, active, firstName, lastName, password, roleID);
+    public void update(String email, Boolean active, String firstName, String lastName, String password) throws Exception {
+        User user = new User(email, active, firstName, lastName, password);
         UserDB userDB = new UserDB();
         userDB.update(user);
     }

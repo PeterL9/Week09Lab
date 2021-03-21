@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +10,7 @@
     <body>
         <form method="POST">
             <h1>Manage Users</h1>
-            <p>Pick a user to <!--edit or--> delete.</p>
+            <p>Pick a user to delete.</p>
             <table border="1" style="width:50%; text-align: left;">
                 <tr>
                     <th></th>
@@ -23,11 +24,19 @@
                 <c:forEach var="user" items="${users}">
                     <tr>
                         <td> <input type="radio" name="radiobutton" value="${user.getEmail()}"/></td>
-                        <td>${user.getFirstName()}</td>
-                        <td>${user.getLastName()}</td>
+                        <td>${user.firstName}</td>
+                        <td>${user.lastName}</td>
                         <td><a href="mailto:${user.getEmail()}">${user.getEmail()}</a></td>
-                        <td>${user.getRoleName()}</td>
-                        <td>${user.isActive()}</td>
+                        <td>${user.getRole()}</td>
+                        <td><c:choose>
+                                <c:when test="${user.getActive()}">
+                                    Active!
+                                </c:when>
+                                <c:otherwise>
+                                    
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

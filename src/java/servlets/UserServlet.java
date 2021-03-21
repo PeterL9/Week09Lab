@@ -44,7 +44,7 @@ public class UserServlet extends HttpServlet {
 
             UserService us = new UserService();
             try {
-                us.insert(email, active, firstName, lastName, password, roleID);
+                us.insert(email, active, firstName, lastName, password);
             } catch (Exception ex) {
                 Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -89,7 +89,7 @@ public class UserServlet extends HttpServlet {
 
             UserService us = new UserService();
             try {
-                us.update(email, active, firstName, lastName, password, roleID);
+                us.update(email, active, firstName, lastName, password);
             } catch (Exception ex) {
                 Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -103,7 +103,5 @@ public class UserServlet extends HttpServlet {
             }
             getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
         }
-        
     }
-
 }
